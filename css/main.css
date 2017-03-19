@@ -94,27 +94,297 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-.wrapper {
-    width: 1170px;
-    margin: 0 auto;
+
+/* =============================== BASE - CSS =============================== */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
 }
 
+body{
+    background-color: #4097c8;
+    background: linear-gradient(#4097c8, #88caef);
+}
+.wrapper{
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
 
+/* =============================== Header =================================== */
+header{
+    padding: 15px 0;
+}
 
+header .logo p {
+    margin-top: -5px;
+}
 
+header .login{
+    display: flex;
+    flex-direction: column;
+}
 
+header input[type=checkbox]{
+    display: none;
+}
 
+header input[type=checkbox]:checked ~ form {
+    display: flex;
+}
 
+header .login label[for=hide]{
+    background-color: #c3c6c9;
+    padding: 10px 15px;
+    border-radius: 15px;
+    display: flex;
+    align-self: flex-end;
+    margin-bottom: 5px;
+}
 
+header .login label[for=hide]:hover {
+    background-color: #a4a6a8;
+}
 
+header .login form {
+    display: none;
+    flex-direction: column;
+}
+header .login form .form-group{
+    width: 100%;
+    margin: 2px 0;
+    display: flex;
+    justify-content: space-between;
+}
 
+header .login form .form-group input{
+    background-color: transparent;
+    border: 1px solid #c3c6c9;
+}
 
+header .login form .form-group input[type=submit]{
+    border-radius: 15px;
+    padding: 5px 10px;
+}
 
+header .login form .form-group input[type=submit]:hover{
+    background-color: #88caef;
+    border: 1px solid #000;
+}
 
+header .login form .form-group label{
+    padding-right: 5px;
+}
 
+/* =============================== iFrame =================================== */
+.promo_video iframe {
+    width: 560px;
+    height: 315px;
+    margin: 60px auto 40px ;
+    box-shadow: 1px 1px 20px 1px #000;
+    border: none;
+}
+/* ============================ About / Register ============================ */
+.about_registration .about{
+    width: 45%;
+    padding: 10px 10px;
+    border-radius: 30px;
+    border: 2px solid  #c3c6c9;
+}
 
+.about_registration .register{
+    width: 45%;
+    padding: 10px 10px;
+    border-radius: 30px;
+    border: 2px solid  #c3c6c9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.about_registration .register form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+}
+.about_registration .register form .form-group{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
 
+.about_registration .register form .form-group:nth-child(4){
+    justify-content: flex-start;
+}
+.about_registration .register form .form-group:nth-child(5){
+    justify-content: flex-end;
+}
+
+.about_registration .register form .form-group input{
+    background-color: transparent;
+    border: 1px solid #c3c6c9;
+    margin-left: 10px;
+}
+
+.about_registration .register form .form-group input[type=submit]{
+    border-radius: 15px;
+    padding: 5px 10px;
+}
+
+.about_registration .register form .form-group input[type=submit]:hover{
+    background-color: #88caef;
+    border: 1px solid #000;
+}
+/* =============================== Download ================================= */
+.download form{
+    width: 20%;
+    margin: 30px auto;
+    box-shadow: 1px 2px 30px 1px #000;
+}
+
+.download form input[type=submit]{
+    width: 100%;
+    height: 30px;
+    background-color: #4c9c3f;
+    border: none;
+}
+
+.download form input[type=submit]:hover{
+    background-color: #4c9c1f;
+}
+/* =============================== Footer =================================== */
+footer {
+    background-image: url(../img/underground_web.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 105px;
+}
+
+footer .wrapper .copy{
+    margin-top: 50px;
+    color: white;
+}
+
+footer .wrapper .privacy{
+    margin-top: 50px;
+    color: white;
+}
+/* =============================== Mobile =================================== */
+@media screen and (max-width: 1270px){
+    .wrapper{
+        flex-direction: column;
+    }
+    header .wrapper {
+        flex-direction: row;
+    }
+    .about_registration .about{
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .about_registration .register{
+        width: 100%;
+
+    }
+    footer .wrapper{
+        flex-direction: row;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    .promo_video iframe {
+    width: 100%;
+    height: 290px;
+    }
+}
+
+@media screen and (max-width: 1030px){
+    .promo_video iframe {
+    width: 100%;
+    height: 320px;
+    }
+}
+
+@media screen and (max-width: 970px){
+    .about_registration .wrapper{
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .wrapper{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 620px){
+    .promo_video iframe {
+    width: 100%;
+    height: 215px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    header .wrapper{
+        flex-direction: column;
+    }
+    header .logo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-self: center;
+    }
+    header .login{
+        width: 100%;
+        justify-content: center;
+    }
+    header .login form {
+    display: none;
+    flex-direction: column;
+    align-self: center;
+    }
+    header .login label[for=hide]{
+    align-self: center;
+    }
+    .download form{
+    width: 30%;
+
+    }
+    footer {
+        height: 100%;
+    }
+    footer .wrapper{
+        flex-direction: column;
+    }
+    footer .wrapper .copy{
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    footer .wrapper .privacy{
+        display: flex;
+        justify-content: center;
+        margin: 10px 0;
+    }
+    
+}
 
 
 /* ==========================================================================
