@@ -27,20 +27,29 @@
                     <p>Je eigen wed bureau</p>
                 </div>
                 <div class="login">
-                    <label for="hide">LogIn</label>
+                    <label for="hide"><?php
+                        if(isset($_GET['message']))
+                        {
+                            echo "je bent ingelogd als";
+                        }
+                        else
+                        {
+                            echo "LogIn";
+                        }
+                    ?></label>
                     <input type="checkbox" id="hide">
-                    <form action="">
+                    <form action="app/login.php" method="POST">
                         <div class="form-group">
                             <label for="Email">E-Mail</label>
-                            <input type="email" id="Email">
+                            <input type="email" id="Email" name="login">
                         </div>
                         <div class="form-group">
                             <label for="Password">Wachtwoord</label>
-                            <input type="password" id="Password">
+                            <input type="password" id="Password" name="haslo">
                         </div>
                         <div class="form-group">
-                            <label for=""></label>
-                            <input type="submit" value="Registreren">
+                            <label for="submit"></label>
+                            <input type="submit" id="submit" value="Registreren">
                         </div>
                     </form>
                 </div>
@@ -49,7 +58,7 @@
         
         <div class="promo_video">
             <div class="wrapper">
-                <iframe src="https://www.youtube.com/embed/VgCqfmAdIHU"></iframe>
+                <iframe src="https://www.youtube.com/embed/VgCqfmAdIHU" allowfullscreen></iframe>
             </div>
         </div>
         <div class="about_registration">
@@ -61,7 +70,7 @@
                     </p>
                 </div>
                 <div class="register">
-                    <form action="">
+                    <form action="app/register.php" method="POST">
                         <div class="form-group">
                             <label for="email">E-Mail</label>
                             <input type="email" id="email">
@@ -75,7 +84,7 @@
                             <input type="password" id="confirmPassword">
                         </div>
                         <div class="form-group">
-                            <input type="checkbox" id="policyPrivacy" onclick="privacyPolicy()">
+                            <input type="checkbox" id="policyPrivacy">
                             <label for="policyPrivacy">Ik akcepteer Algemene voorwaarden</label>
                         </div>
                         <div class="form-group">
@@ -87,7 +96,7 @@
         </div>
         <div class="download">
             <div class="wrapper">
-                <form action="">
+                <form action="app/download.php">
                     <input type="submit" value="Download">
                 </form>
             </div>
@@ -95,7 +104,7 @@
         <footer>
             <div class="wrapper">
                 <div class="copy">
-                    <p>&#169 by Radius-Worm-District</p>
+                    <p>&#169; by Radius-Worm-District</p>
                 </div>
                 <div class="privacy">
                     <p>Algemene voorwaarden</p>
