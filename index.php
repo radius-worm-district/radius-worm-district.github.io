@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    
+?>
 <!doctype html>
 <html class="no-js" lang="">
     <head>
@@ -27,30 +31,40 @@
                     <p>Je eigen wed bureau</p>
                 </div>
                 <div class="login">
-                    <label for="hide"><?php
-                        if(isset($_GET['message']))
+                    <?php
+
+                        echo '<label for="hide">LogIn</label>';
+                        echo '<input type="checkbox" id="hide">';
+
+                        if(isset($_SESSION['logInError']))
                         {
-                            echo "je bent ingelogd als";
+                            echo $_SESSION['logInError'];
+                            unset($_SESSION['logInError']);
+                        }
+                        if(isset($_SESSION['logedIn']))
+                        {
+                            echo $_SESSION['logedIn'];
+                            unset($_SESSION['logedIn']);
                         }
                         else
                         {
-                            echo "LogIn";
+                            echo '';
                         }
-                    ?></label>
-                    <input type="checkbox" id="hide">
-                    <form action="app/login.php" method="POST">
+                    ?>
+                    <form action="app/login.php" method="get">
                         <div class="form-group">
                             <label for="Email">E-Mail</label>
-                            <input type="email" id="Email" name="login">
+                            <input type="email" id="Email" name="email">
                         </div>
                         <div class="form-group">
                             <label for="Password">Wachtwoord</label>
-                            <input type="password" id="Password" name="haslo">
+                            <input type="password" id="Password" name="pass">
                         </div>
                         <div class="form-group">
                             <label for="submit"></label>
                             <input type="submit" id="submit" value="Registreren">
                         </div>
+                        
                     </form>
                 </div>
             </div>
@@ -75,27 +89,42 @@
                     </p>
                 </div>
                 <div class="register">
-                    <form action="app/register.php" method="POST">
+                    <form action="app/register.php" method="GET">
                         <div class="form-group">
                             <label for="email">E-Mail</label>
-                            <input type="email" id="email">
+                            <input type="email" name="email" id="email">
                         </div>
                         <div class="form-group">
                             <label for="password">Wachtwoord</label>
-                            <input type="password" id="password">
+                            <input type="password" name="pass" id="pass">
                         </div>
-                        <div class="form-group">
+                        <!--<div class="form-group">
                             <label for="confirmPassword">Herhaal Wachtwoord</label>
                             <input type="password" id="confirmPassword">
-                        </div>
+                        </div>-->
                         <div class="form-group">
                             <input type="checkbox" id="policyPrivacy">
                             <label for="policyPrivacy">Ik akcepteer Algemene voorwaarden</label>
-
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Registreren">
                         </div>
+                        <?php
+                        if(isset($_SESSION['emailerror']))
+                        {
+                            echo $_SESSION['emailerror'];
+                            unset($_SESSION['emailerror']);
+                        }
+                        if(isset($_SESSION['created']))
+                        {
+                            echo $_SESSION['created'];
+                            unset($_SESSION['created']);
+                        }
+                        else
+                        {
+                            echo '';
+                        }
+                        ?>
                     </form>
                 </div>
             </div>
