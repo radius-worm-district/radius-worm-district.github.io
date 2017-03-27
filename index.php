@@ -64,9 +64,14 @@
         <div class="about_registration">
             <div class="wrapper">
                 <div class="about">
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est.
-                        Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem.
-                        In porttitor. Donec laoreet nonummy augue. Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.
+                    <p>
+                        Zit je wel is met het probleem dat je wilt gaan gokken maar geen geld hebt ?
+                        vrees niet langer hier is het geweldige product De Gokkers!
+                        Neem het tegen elkaar op in dit geweldige Gok race spel! Kies 1 van de 5 wormen en bied een bedrag tussen de 5 en 15 euro.
+                        Na de vreselijk spannende race zie je rechts op het scorebord wie er gewonnen heeft. Is jou worm de winnaar ?
+                        dan word jou inzet verdubbeld! Zo niet dan word het geld dat je inzette van je saldo afgehaald.
+                        Vervolgens kan je weer geld in zetten om nog een race te starten.
+                        Zo simpel is het! Dus wacht niet langer registreer je eigen account, login en download het meteen!
                     </p>
                 </div>
                 <div class="register">
@@ -84,8 +89,13 @@
                             <input type="password" id="confirmPassword">
                         </div>
                         <div class="form-group">
+<<<<<<< HEAD
                             <input type="checkbox" id="policyPrivacy">
                             <label for="policyPrivacy">Ik akcepteer Algemene voorwaarden</label>
+=======
+                            <input type="checkbox" id="policyPrivacy" onclick="privacyPolicy()">
+                            <label for="policyPrivacy">Ik accepteer de Algemene voorwaarden</label>
+>>>>>>> refs/heads/DeGokkersKevin
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Registreren">
