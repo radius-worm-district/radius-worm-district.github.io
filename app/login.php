@@ -1,34 +1,22 @@
 <?php
+    session_start();
     require_once "connection.php";
-  
-    if($connection->connect_errno!=0)
+
+    $email = $_GET['email'];
+    $pass = $_GET['pass'];
+
+    $stmt = $db_conn->prepare("SELECT * FROM users WHERE email = :email AND pass = :pass");
+    $stmt->execute(array("email" => $email, "pass" => $pass));
+
+    if ($logdIn = $stmt->fetchAll(PDO::FETCH_ASSOC))
     {
-        echo "Error: " . $connection->connect_errno;
-    }
-    else
-    {
-        $login = $_POST['login'];
-        $haslo = $_POST['haslo'];
-        
-        $sql = "SELECT * FROM users WHERE email='$login' AND wachtwoord='$haslo'";
-        
-        if($rezult = @$connection->query($sql))
+        foreach ($logdIn as $logd)
         {
-            $countusers = $rezult->num_rows;
-            if($countusers>0)
-            {
-                $wiersz = $rezult->fetch_assoc();
-                $user = $wiersz['email'];
-                
-                $rezult->free_result();
-                $message = urlencode("Je bent ingelogd als: " . $user);
-                header('location: ../index.php?message=' . $message);
-            }
-            else{
-                echo "Bad login";
-            }
+            $_SESSION['logedIn'] = $logd['email'];
+            header("location: ../index.php");
         }
-        $connection->close();
     }
-    
-?>
+    else{
+        $_SESSION['logInError'] = "Je hebt verkeerde email of wachtwoord ingetoetst";
+        header("location: ../index.php");
+    }
