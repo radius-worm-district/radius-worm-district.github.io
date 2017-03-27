@@ -89,13 +89,9 @@
                             <input type="password" id="confirmPassword">
                         </div>
                         <div class="form-group">
-<<<<<<< HEAD
                             <input type="checkbox" id="policyPrivacy">
                             <label for="policyPrivacy">Ik akcepteer Algemene voorwaarden</label>
-=======
-                            <input type="checkbox" id="policyPrivacy" onclick="privacyPolicy()">
-                            <label for="policyPrivacy">Ik accepteer de Algemene voorwaarden</label>
->>>>>>> refs/heads/DeGokkersKevin
+
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Registreren">
