@@ -1,8 +1,8 @@
 <?php
-    $host = "localhost";
-    $db_user = "root";
-    $db_password = "";
-    $db_name = "worms";
-    
-    $connection = @new mysqli($host, $db_user, $db_password, $db_name);
-?>
+
+try{
+    $db_conn = new PDO('mysql:host=localhost;dbname=worms','root','');
+}catch(PDOException $e)
+{
+    echo "Error: " . $e->getCode();
+}
