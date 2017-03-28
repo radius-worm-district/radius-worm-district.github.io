@@ -17,7 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $confpass = $_POST['confpass'];
 
     $validate = new \app\Validate($email, $pass);
-    $regValidate = new \app\RegisterValidate($email, $pass, $confpass);
+    $regValidate = new \app\RegisterValidate($pass, $confpass);
+
     if (strlen($pass)>6 && preg_match('`[A-Z]`',$pass) && preg_match('`[0-9]`',$pass))
     {
         if ($validate->validate($email, $pass) == true) {
@@ -45,3 +46,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     header("location: ../index.php");
 }
+

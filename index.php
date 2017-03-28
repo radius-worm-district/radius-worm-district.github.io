@@ -89,7 +89,7 @@
                     <form action="app/register.php" method="post">
                         <div class="form-group">
                             <label for="email">E-Mail</label>
-                            <input type="text" name="email" id="email">
+                            <input type="email" name="email" id="email">
                         </div>
                         <div class="form-group">
                             <label for="password">Wachtwoord</label>
@@ -97,25 +97,25 @@
                         </div>
                         <div class="form-group">
                             <label for="confirmPassword">Herhaal Wachtwoord</label>
-                            <input type="password" name="confpass" id="confirmPassword">
+                            <input type="password" id="confirmPassword" name="confpass">
                         </div>
                         <div class="form-group">
-                            <input type="checkbox" id="policyPrivacy" required>
+                            <input type="checkbox" id="policyPrivacy" name="check">
                             <label for="policyPrivacy">Ik akcepteer Algemene voorwaarden</label>
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Registreren">
                         </div>
                         <?php
-                            if(isset($_SESSION['regmessage']))
-                            {
-                                echo $_SESSION['regmessage'];
-                                unset($_SESSION['regmessage']);
-                            }
-                            if(!isset($_SESSION['regmessage']))
-                            {
-                                echo '';
-                            }
+                        if(isset($_SESSION['regmessage']))
+                        {
+                            echo $_SESSION['regmessage'];
+                            unset($_SESSION['regmessage']);
+                        }
+                        if(!isset($_SESSION['regmessage']))
+                        {
+                            echo '';
+                        }
                         ?>
                     </form>
                 </div>
