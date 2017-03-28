@@ -86,41 +86,36 @@
                     </p>
                 </div>
                 <div class="register">
-                    <form action="app/register.php" method="GET">
+                    <form action="app/register.php" method="post">
                         <div class="form-group">
                             <label for="email">E-Mail</label>
-                            <input type="email" name="email" id="email">
+                            <input type="text" name="email" id="email">
                         </div>
                         <div class="form-group">
                             <label for="password">Wachtwoord</label>
                             <input type="password" name="pass" id="pass">
                         </div>
-                        <!--<div class="form-group">
-                            <label for="confirmPassword">Herhaal Wachtwoord</label>
-                            <input type="password" id="confirmPassword">
-                        </div>-->
                         <div class="form-group">
-                            <input type="checkbox" id="policyPrivacy">
+                            <label for="confirmPassword">Herhaal Wachtwoord</label>
+                            <input type="password" name="confpass" id="confirmPassword">
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" id="policyPrivacy" required>
                             <label for="policyPrivacy">Ik akcepteer Algemene voorwaarden</label>
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Registreren">
                         </div>
                         <?php
-                        if(isset($_SESSION['emailerror']))
-                        {
-                            echo $_SESSION['emailerror'];
-                            unset($_SESSION['emailerror']);
-                        }
-                        if(isset($_SESSION['created']))
-                        {
-                            echo $_SESSION['created'];
-                            unset($_SESSION['created']);
-                        }
-                        else
-                        {
-                            echo '';
-                        }
+                            if(isset($_SESSION['regmessage']))
+                            {
+                                echo $_SESSION['regmessage'];
+                                unset($_SESSION['regmessage']);
+                            }
+                            if(!isset($_SESSION['regmessage']))
+                            {
+                                echo '';
+                            }
                         ?>
                     </form>
                 </div>
