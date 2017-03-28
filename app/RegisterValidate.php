@@ -12,6 +12,7 @@ include_once("Validate.php");
 class RegisterValidate extends Validate
 {
     private $confirmedPassword;
+    private $check;
 
     public function __construct($email, $password, $confirmedPassword )
     {
@@ -30,5 +31,16 @@ class RegisterValidate extends Validate
             return false;
         }
 
+    }
+    public function validateCheck($check)
+    {
+        if ($check != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

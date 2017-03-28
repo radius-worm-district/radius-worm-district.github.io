@@ -100,7 +100,7 @@
                             <input type="password" id="confirmPassword" name="confpass">
                         </div>
                         <div class="form-group">
-                            <input type="checkbox" id="policyPrivacy" name="check">
+                            <input type="checkbox" id="policyPrivacy" name="check" required>
                             <label for="policyPrivacy">Ik akcepteer Algemene voorwaarden</label>
                         </div>
                         <div class="form-group">
@@ -124,7 +124,17 @@
         <div class="download">
             <div class="wrapper">
                 <form action="app/download.php">
-                    <input type="submit" value="Download">
+                    <?php
+                        if (isset($_SESSION['logedIn']))
+                        {
+                            echo '<input type="submit" value="Download">';
+                        }
+                        else
+                        {
+                            echo '<input type="submit" value="Login to download">';
+                        }
+                    ?>
+
                 </form>
             </div>
         </div>
