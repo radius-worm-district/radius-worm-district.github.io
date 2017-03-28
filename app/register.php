@@ -28,8 +28,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             {
                 if ($regValidate->validateCheck($checkd) == true)
                 {
+                    $hash = password_hash($pass, PASSWORD_DEFAULT);
+
                     $stmt = $db_conn->prepare("INSERT INTO users (email, pass) VALUES (:email, :pass)");
-                    $stmt->execute(array("email" => $email, "pass" => $pass));
+                    $stmt->execute(array("email" => $email, "pass" => $hash));
 
                     if ($stmt->errorCode() == 23000) {
                         $_SESSION['regmessage'] = "Deze email bestaat al";

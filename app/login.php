@@ -15,15 +15,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $validate = new \app\Validate($email, $pass);
 
-    if ($validate->validate($email, $pass) == true) {
-        $stmt = $db_conn->prepare("SELECT * FROM users WHERE email = :email AND pass = :pass");
-        $stmt->execute(array("email" => $email, "pass" => $pass));
-        $result = $stmt->rowCount();
+    if ($validate->validate($email, $pass) == true)
+    {
+        $stmt = $db_conn->prepare("SELECT * FROM users WHERE email = :email");
+        $stmt->execute(array("email" => $email));
+        $userAll = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($result == 1) {
-            $_SESSION['logedIn'] = "Je bent ingelogd als: " . $email;
+        if ($stmt->rowCount() == 1) {
+            if (password_verify($pass, $userAll['pass']))
+            {
+                $_SESSION['logedIn'] = "Je bent ingelogd als: " . $email;
+            }
+            else
+            {
+                $_SESSION['error'] = "Je hebt verkeerde email of wachtwoord ingetoets";
+            }
         }
-        if ($result == 0) {
+        if ($stmt->rowCount() == 0) {
             $_SESSION['error'] = "Je hebt verkeerde email of wachtwoord ingetoets";
         }
     } else {

@@ -34,12 +34,12 @@
                     <?php
                         if (!isset($_SESSION['logedIn']))
                         {
-                            echo '<label for="hide">LogIn</label>';
+                            echo '<label for="hide">Login</label>';
                             echo '<input type="checkbox" id="hide">';
                         }
                         if(isset($_SESSION['error']))
                         {
-                            echo $_SESSION['error'];
+                            echo '<span class="error">' . $_SESSION['error'] . '</span>';
                             unset($_SESSION['error']);
                         }
                         if(isset($_SESSION['logedIn']))
@@ -51,15 +51,15 @@
                     <form action="app/login.php" method="post">
                         <div class="form-group">
                             <label for="Email">E-Mail</label>
-                            <input type="email" id="Email" name="email">
+                            <input type="email" id="Email" name="email" required>
                         </div>
                         <div class="form-group">
                             <label for="Password">Wachtwoord</label>
-                            <input type="password" id="Password" name="pass">
+                            <input type="password" id="Password" name="pass" required>
                         </div>
                         <div class="form-group">
                             <label for="submit"></label>
-                            <input type="submit" id="submit" value="Registreren">
+                            <input type="submit" id="submit" value="Login">
                         </div>
                         
                     </form>
@@ -89,15 +89,15 @@
                     <form action="app/register.php" method="post">
                         <div class="form-group">
                             <label for="email">E-Mail</label>
-                            <input type="email" name="email" id="email">
+                            <input type="email" name="email" id="email" required>
                         </div>
                         <div class="form-group">
                             <label for="password">Wachtwoord</label>
-                            <input type="password" name="pass" id="pass">
+                            <input type="password" name="pass" id="pass" required>
                         </div>
                         <div class="form-group">
                             <label for="confirmPassword">Herhaal Wachtwoord</label>
-                            <input type="password" id="confirmPassword" name="confpass">
+                            <input type="password" id="confirmPassword" name="confpass" required>
                         </div>
                         <div class="form-group">
                             <input type="checkbox" id="policyPrivacy" name="check" required>
@@ -109,7 +109,7 @@
                         <?php
                         if(isset($_SESSION['regmessage']))
                         {
-                            echo $_SESSION['regmessage'];
+                            echo '<span class="error">' . $_SESSION['regmessage'] . '</span>';
                             unset($_SESSION['regmessage']);
                         }
                         if(!isset($_SESSION['regmessage']))
@@ -123,19 +123,17 @@
         </div>
         <div class="download">
             <div class="wrapper">
-                <form action="app/download.php">
                     <?php
                         if (isset($_SESSION['logedIn']))
                         {
-                            echo '<input type="submit" value="Download">';
+                            echo "<a class='button' href='downloadfiles/De_Gokkers.exe'>Download Game</a>";
+                            echo "<a class='button' href='downloadfiles/official-worm-project.zip'>Download Source Code</a>";
                         }
                         else
                         {
-                            echo '<input type="submit" value="Login to download">';
+                            echo "<a class='button' href='index.php'>Login om te downloaden</a>";
                         }
                     ?>
-
-                </form>
             </div>
         </div>
         <footer>
