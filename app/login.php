@@ -1,22 +1,41 @@
 <?php
     session_start();
+
+if ($_SERVER['REQUEST_METHOD'] == 'GET')
+{
+    session_destroy();
+    header('location: ../index.php');
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
     require_once "connection.php";
+    require_once ("Validate.php");
 
-    $email = $_GET['email'];
-    $pass = $_GET['pass'];
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
 
-    $stmt = $db_conn->prepare("SELECT * FROM users WHERE email = :email AND pass = :pass");
-    $stmt->execute(array("email" => $email, "pass" => $pass));
+    $validate = new \app\Validate($email, $pass);
 
-    if ($logdIn = $stmt->fetchAll(PDO::FETCH_ASSOC))
+    if ($validate->validate($email, $pass) == true)
     {
-        foreach ($logdIn as $logd)
+        $stmt = $db_conn->prepare("SELECT * FROM users WHERE email = :email AND pass = :pass");
+        $stmt->execute(array("email" => $email, "pass" => $pass));
+        $result = $stmt->rowCount();
+
+        if ($result == 1)
         {
-            $_SESSION['logedIn'] = $logd['email'];
-            header("location: ../index.php");
+            $_SESSION['logedIn'] = $email;
+        }
+        if ($result == 0)
+        {
+            $_SESSION['error'] = "Je hebt verkeerde email of wachtwoord ingetoets";
         }
     }
-    else{
-        $_SESSION['logInError'] = "Je hebt verkeerde email of wachtwoord ingetoetst";
-        header("location: ../index.php");
+    else
+    {
+        $_SESSION['error'] = "Je hebt ongeldige email ingetoets";
+
     }
+    header("location: ../index.php");
+}

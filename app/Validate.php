@@ -1,14 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Iwan
- * Date: 21-3-2017
- * Time: 16:25
- */
 
 namespace app;
 
-
+session_start();
 class Validate
 {
     protected $email;
@@ -33,3 +27,4 @@ class Validate
         }
     }
 }
+

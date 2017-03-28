@@ -32,26 +32,23 @@
                 </div>
                 <div class="login">
                     <?php
-
-                        echo '<label for="hide">LogIn</label>';
-                        echo '<input type="checkbox" id="hide">';
-
-                        if(isset($_SESSION['logInError']))
+                        if (!isset($_SESSION['logedIn']))
                         {
-                            echo $_SESSION['logInError'];
-                            unset($_SESSION['logInError']);
+                            echo '<label for="hide">LogIn</label>';
+                            echo '<input type="checkbox" id="hide">';
+                        }
+                        if(isset($_SESSION['error']))
+                        {
+                            echo $_SESSION['error'];
+                            unset($_SESSION['error']);
                         }
                         if(isset($_SESSION['logedIn']))
                         {
+                            echo '<a class="logout" href="app/login.php">Logout</a>';
                             echo $_SESSION['logedIn'];
-                            unset($_SESSION['logedIn']);
-                        }
-                        else
-                        {
-                            echo '';
                         }
                     ?>
-                    <form action="app/login.php" method="get">
+                    <form action="app/login.php" method="post">
                         <div class="form-group">
                             <label for="Email">E-Mail</label>
                             <input type="email" id="Email" name="email">

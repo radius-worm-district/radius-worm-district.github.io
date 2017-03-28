@@ -148,6 +148,20 @@ header input[type=checkbox]:checked ~ form {
     display: flex;
 }
 
+header .login a {
+    background-color: #c3c6c9;
+    padding: 10px 15px;
+    border-radius: 15px;
+    color: #000;
+    display: flex;
+    align-self: flex-end;
+    text-decoration: none;
+}
+
+header .login a:hover {
+    background-color: #a4a6a8;
+}
+
 header .login label[for=hide]{
     background-color: #c3c6c9;
     padding: 10px 15px;
