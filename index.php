@@ -14,7 +14,9 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
 
-        <link href="https://fonts.googleapis.com/css?family=Orbitron|Revalia|Roboto+Mono" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Revalia" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
@@ -94,7 +96,7 @@
                             <input type="email" name="email" id="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="password">Wachtwoord</label>
+                            <label for="pass">Wachtwoord</label>
                             <input type="password" name="pass" id="pass" required>
                         </div>
                         <div class="form-group">
