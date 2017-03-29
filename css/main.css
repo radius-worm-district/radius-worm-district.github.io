@@ -120,6 +120,10 @@ body{
     background: linear-gradient(#4097c8, #88caef);
 
 }
+
+h1, h2, h3, h4, p, a, label, span{
+    font-family: 'Roboto Mono', monospace;
+}
 .wrapper{
     width: 50%;
     margin: 0 auto;
@@ -141,7 +145,12 @@ header{
     padding: 15px 0;
 }
 
+header .logo h2{
+    font-family: 'Revalia', cursive;
+}
+
 header .logo p {
+    font-family: 'Orbitron', sans-serif;
     margin-top: -5px;
 }
 
@@ -231,20 +240,22 @@ header .login form .form-group label{
 }
 /* ============================ About / Register ============================ */
 .about_registration .about{
-    width: 45%;
+    width: 46%;
     padding: 10px 10px;
     border-radius: 15px;
+    box-sizing: border-box;
     box-shadow: 1px 1px 20px 1px #000;
 }
 
 .about_registration .register{
-    width: 45%;
-    padding: 10px 10px;
+    width: 46%;
+    padding: 10px 20px;
     border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 1px 1px 20px 1px #000;
+    box-sizing: border-box;
 }
 
 .about_registration .register form {
@@ -266,9 +277,16 @@ header .login form .form-group label{
 }
 
 .about_registration .register form .form-group input{
+    width: 50%;
     background-color: transparent;
     border: 1px solid #c3c6c9;
     margin-left: 10px;
+}
+
+.about_registration .register form .form-group input[type=checkbox]{
+    width: 10%;
+    border-radius: 15px;
+    padding: 5px 10px;
 }
 
 .about_registration .register form .form-group input[type=submit]{
@@ -408,9 +426,8 @@ footer .wrapper .privacy{
     header .login label[for=hide]{
     align-self: center;
     }
-    .download form{
-    width: 30%;
-
+    .download a{
+    width: 80%;
     }
     footer {
         height: 100%;
