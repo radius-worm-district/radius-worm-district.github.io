@@ -107,9 +107,6 @@
                             <input type="checkbox" id="policyPrivacy" name="check" required>
                             <label for="policyPrivacy">Ik akcepteer Algemene voorwaarden</label>
                         </div>
-                        <div class="form-group">
-                            <input type="submit" value="Registreren">
-                        </div>
                         <?php
                         if(isset($_SESSION['regmessage']))
                         {
@@ -121,6 +118,10 @@
                             echo '';
                         }
                         ?>
+                        <div class="form-group">
+                            <label for="Submit"></label>
+                            <input type="submit" value="Registreren" id="Submit">
+                        </div>
                     </form>
                 </div>
             </div>
