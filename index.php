@@ -82,13 +82,7 @@
             <div class="wrapper">
                 <div class="about">
                     <p>
-                        Zit je wel is met het probleem dat je wilt gaan gokken maar geen geld hebt ?
-                        vrees niet langer hier is het geweldige product De Gokkers!
-                        Neem het tegen elkaar op in dit geweldige Gok race spel! Kies 1 van de 5 wormen en bied een bedrag tussen de 5 en 15 euro.
-                        Na de vreselijk spannende race zie je rechts op het scorebord wie er gewonnen heeft. Is jou worm de winnaar ?
-                        dan word jou inzet verdubbeld! Zo niet dan word het geld dat je inzette van je saldo afgehaald.
-                        Vervolgens kan je weer geld in zetten om nog een race te starten.
-                        Zo simpel is het! Dus wacht niet langer registreer je eigen account, login en download het meteen!
+                        Zit je wel is met het probleem dat je wilt gaan gokken maar geen geld hebt ? Vrees niet langer hier is het geweldige product De Gokkers! Neem het tegen elkaar op in dit geweldige Gok race spel! Kies één van de vijf wormen en bied een bedrag tussen de vijf en vijftien euro. Na de vreselijk spannende race zie je rechts op het scorebord wie er gewonnen heeft. Is jouw worm de winnaar ? Dan word jou inzet verdubbeld! Zo niet dan word het geld dat je inzette van je saldo afgehaald. Vervolgens kun je weer geld in zetten om nog een race te starten. Zo simpel is het! Dus wacht niet langer registreer je eigen account, login en download het meteen!
                     </p>
                 </div>
                 <div class="register">
@@ -107,7 +101,7 @@
                         </div>
                         <div class="form-group">
                             <input type="checkbox" id="policyPrivacy" name="check" required>
-                            <label for="policyPrivacy">Ik akcepteer Algemene voorwaarden</label>
+                            <label for="policyPrivacy">Ik accepteer Algemene voorwaarden</label>
                         </div>
                         <?php
                         if(isset($_SESSION['regerror']))
