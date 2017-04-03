@@ -17,6 +17,8 @@
         <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Revalia" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
@@ -108,9 +110,14 @@
                             <label for="policyPrivacy">Ik akcepteer Algemene voorwaarden</label>
                         </div>
                         <?php
+                        if(isset($_SESSION['regerror']))
+                        {
+                            echo '<span class="error alert-danger center-text">' . $_SESSION['regerror'] . '</span>';
+                            unset($_SESSION['regerror']);
+                        }
                         if(isset($_SESSION['regmessage']))
                         {
-                            echo '<span class="error">' . $_SESSION['regmessage'] . '</span>';
+                            echo '<span class="error alert-success center-text">' . $_SESSION['regmessage'] . '</span>';
                             unset($_SESSION['regmessage']);
                         }
                         if(!isset($_SESSION['regmessage']))

@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $stmt->execute(array("email" => $email, "pass" => $hash));
 
                     if ($stmt->errorCode() == 23000) {
-                        $_SESSION['regmessage'] = "Deze email bestaat al";
+                        $_SESSION['regerror'] = "Deze email bestaat al";
                     }
                     else {
                         $_SESSION['regmessage'] = "Je account is aangemaakt";
@@ -42,20 +42,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
                 else
                 {
-                    $_SESSION['regmessage'] = "Je moet algemene voorwaarden accepteren.";
+                    $_SESSION['regerror'] = "Je moet algemene voorwaarden accepteren.";
                 }
             }
             else
             {
-                $_SESSION['regmessage'] = "Je hebt geen gelijke wachtwoorden";
+                $_SESSION['regerror'] = "Je hebt geen gelijke wachtwoorden";
             }
         } else {
-            $_SESSION['regmessage'] = "Je hebt geen geldige e-mail ingetoetst";
+            $_SESSION['regerror'] = "Je hebt geen geldige e-mail ingetoetst";
         }
     }
     else
     {
-        $_SESSION['regmessage'] = "Wachtwoord moet minimaal 7 karakters bevaten waarvan een hoofdletter is en een cijfer.";
+        $_SESSION['regerror'] = "Wachtwoord moet minimaal 7 karakters bevaten waarvan een hoofdletter is en een cijfer.";
     }
     header("location: ../index.php");
 }
